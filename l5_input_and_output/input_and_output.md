@@ -185,8 +185,48 @@ The formatting for formatting is the following: `%[flag][width][.precision]type`
 - We see that the output for format will add a `$` and 2 decimal places after.
 
 ``` java
+    import java.util.Locale;
+```
+
+``` java
     System.out.println("Unformatter Total: " + total);
     NumberFormat currencyFormat = NumberFormay.getCurrencyInstance(Locale.FRANCE);
     System.out.println("Formatted Total: " + currencyFormat.format(total));
 ```
 - We can also change the currency by adding `Locale.FRANCE` in the getCurrencyInstance argument
+
+## DecimalFormat
+
+``` java
+    import java.text.DecimalFormat;
+```
+``` java
+    DecimalFormat formatter1 = new DecimalFormat("0.0");
+```
+- Here we specify how we want the decimal to be. Take the following:
+
+``` java
+import java.text.DecimalFormat;
+
+public class DecimalFormatDemo {
+    public static void main(String[] args) {
+        DecimalFormat formatter1 = new DecimalFormat("0.0");
+        DecimalFormat formatter2 = new DecimalFormat("00.00");
+        DecimalFormat formatter3 = new DecimalFormat(".00");
+        DecimalFormat formatter4 = new DecimalFormat("0.00%");
+ 
+        System.out.println("0.0: " + formatter1.format(.8675309));
+        System.out.println("00.00: " + formatter2.format(.8675309));
+        System.out.println(".00: " + formatter3.format(.8675309));
+        System.out.println("0.00%: " + formatter4.format(.8675309));
+        System.out.println(".00: " + formatter3.format(8675309));
+    }
+}
+```
+
+The output would be:
+>0.0: 0.9 \
+>00.00: 00.87 \
+>.00: .87 \
+>0.00%: 86.75% \
+>.00: 8675309.00 
