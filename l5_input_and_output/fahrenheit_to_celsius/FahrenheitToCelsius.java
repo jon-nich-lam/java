@@ -5,7 +5,10 @@ public class FahrenheitToCelsius{
         Scanner input = new Scanner(System.in);
         System.out.print("Enter a Fahrenheit value: ");
         int fahrenheit = input.nextInt();
+        input.nextLine(); //Cleans up newline
+        System.out.print("Enter month day and year: ");
+        String day = input.nextLine();
         double celsius = (5.0/9) * (fahrenheit-32);
-        System.out.println("Celsius: " + celsius);
+        System.out.println(day + " Celsius: " + celsius);
     }
 }
